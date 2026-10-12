@@ -1,0 +1,302 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Space+Mono:wght@400;700&display=swap');
+:root {
+    --ink: #1b1f3b;
+   --ink-soft: #2c2f4a;
+   --cream: #F7F4EC;
+   --gold: #c9a227;
+   --line: #d9d3c2;
+   --error: #b8492f;
+
+
+}
+
+*{box-sizing:border-box; margin:0;padding:0;}
+
+body {
+    min-height: 100vh;
+    background: var(--ink);
+    background-image: radial-gradient(circle at 15% 20%, rgba(201, 162, 39, 0.10),transparent 40%),
+    radial-gradient(circle at 85% 80%, rgba(201, 162, 39, 0.08),transparent 45%);
+    font-family:'Space Mono',monospace;
+    display: flex;
+    padding: 40px 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.pass{
+    position: relative;
+    width: 380px;
+    max-width: 100%;
+    background: var(--cream);
+    border-radius: 14px;
+    box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.55);
+    overflow: hidden;
+}
+  /*header stub */
+.pass-head{
+   padding: 34px 34px 22px;
+   text-align: left;
+}
+
+.eyebrow{
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform:uppercase;
+    font-weight: 700;
+    color:var(--gold);
+}
+
+.title{
+    font-family: 'Fraunces', serif;
+    font-optical-sizing:auto;
+    font-weight:600;
+    font-size: 30px;
+    color: var(--ink);
+    margin-top: 6px;
+    letter-spacing:-0.5px;
+}
+
+.subtitle{
+    font-size:12px;
+    color:var(--ink-soft);
+    line-height:1.5;
+    margin-top: 6px;
+}
+
+/*toggle, ticket style  */
+.toggle{
+    display: flex;
+    margin: 0 34px;
+    position: relative;
+    border: 1.5px solid var(--ink);
+    border-radius: 999px;
+    padding: 3px;
+    background: var(--cream);
+}
+
+.toggle input{
+    display:none;
+}
+
+.toggle label{
+    flex:1;
+    text-align:center;
+    font-size: 11px;
+   text-transform:uppercase;
+    font-weight:700;
+    padding:9px 0;
+    border-radius;999px;
+    color:var(--ink-soft);
+    cursor:pointer;
+    position:relative;
+    z-index:2;
+    transition:color 0.35s ease;
+    
+}
+
+.toggle-glider{
+    position:absolute;
+    top:3px;
+    left:3px;
+    width: calc(50% - 3px);
+    height:calc(100% - 6px);
+    background: var(--ink);
+    border-radius:999px;
+    transition: transform 0.35s cubic-bezier(.65,0,.35,1);
+    z-index:1;
+}
+
+#tab-login:checked ~ .toggle .toggle-glider{transform: translateX(0);}
+#tab-signup:checked ~ .toggle .toggle-glider{transform: translateX(100%);}
+
+#tab-login:checked ~ .toggle
+label[for="tab-login"]{
+    color:var(--cream);
+    }
+#tab-signup:checked ~ .toggle
+label[for="tab-signup"]{
+    color:var(--cream);
+    }
+
+/* perforated divider-ticket stub look */
+.perforation{
+    position:relative;
+    margin: 28px 0 0;
+    border-top:1.5px dashed var(--line);
+}
+.perforation::before,
+.perforation::after{
+    content:"";
+    position:absolute;
+    top:-10px;
+    width:20px;
+    height: 20px;
+    background: var(--ink);
+    border-radius: 50%;
+}
+.perforation::before{left:-10px;}
+.perforation::after{right:-10px;}
+
+/* forms */
+.forms{
+    position:relative;
+    padding:26px 34px 34px;
+}
+
+.panel{
+    display:none;
+    flex-direction:column;
+    gap: 16px;
+    animation:rise 0.4s ease ;
+}
+
+@keyframes rise{
+    from{ opacity:0;transform:translateY(6px);}
+    to{ opacity: 1; transform: translateY(0);}
+}
+
+#tab-login:checked~.forms #login-panel{
+ display:flex;}
+#tab-signup:checked~.forms #signup-panel{ 
+display:flex;}
+
+.field{
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.field label{
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    font-weight: 700;
+}
+
+.field input{
+    font-family: 'Space Mono',monospace;
+    font-size: 13.5px;
+    padding: 12px 14px;
+    border: 1.5px solid var(--line);
+    border-radius: 8px;
+    background: #fff;
+    color: var(--ink);
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.field input::placeholder{
+    color: #b7b2a2;
+}
+
+.field input:focus{
+    border-color:var(--ink);
+    box-shadow: 0 0 0 3px rgba(27, 31, 59,0.10);
+}
+
+.field input:focus-visible{
+    outline:2px solid var(--gold);
+    outline-offset: 2px;
+}
+
+.row-between{
+    display:flex;
+    align-items:center;
+    justify-content: space-between;
+    font-size:11px;
+    color:var(--ink-soft);
+}
+
+.remember{
+    display:flex;
+    align-items:center;
+    gap:7px;
+}
+
+.remember input{
+    accent-color:var(--ink);
+    width: 13px;
+    height: 13px;
+}
+
+.link{
+    color: var(--ink);
+    text-decoration: none;
+    border-bottom: 1px solid var(--gold);
+    padding-bottom:1px;
+} 
+.link:hover{color:var(--gold)}
+
+.submit{
+    margin-top:4px;
+    font-family:'Space Mono',monospace;
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 14px;
+    border:none;
+    border-radius: 8px;
+    background: var(--ink);
+    color: var(--cream);
+    cursor: pointer;
+    transition:background 0.2s ease,transform 0.15s ease;
+}
+
+.submit:hover{background: var(--ink-soft);}
+.submit:active{transform:scale(0.98);}
+.submit:focus-visible{outline: 2px solid var(--gold); outline-offset: 2px;}
+
+.fine-print{
+    font-size: 10.5px;
+    color: var(--ink-soft);
+    line-height: 1.6;
+    text-align: center;
+}
+
+.fine-print .link{
+     border-color:var(--line);
+    }
+
+.stamp{
+    position:absolute;
+    top:18px;
+    right: 30px;
+    width: 54px;
+    height: 54px;
+    border:1.5px solid var(--gold);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: rotate(-12deg);
+    opacity: 0.85;
+    pointer-events: none;
+}
+
+.stamp span{
+    font-size: 8px;
+    letter-spacing: 1px;
+    color: var(--gold);
+    text-transform: uppercase;
+    font-weight: 700;
+    text-align: center;
+    line-height: 1.3;
+}
+
+@media (prefers-reduced-motion: reduce){
+    .toggle-glider,.panel,.submit{animation:none;transition:none;}
+}
+
+@media (max-width:420px){
+    .pass{width:100%;}
+    .pass-head,.forms{padding-left: 24px;padding-right: 24px;}
+    .toggle{margin-left: 24px;margin-right: 24px;}
+}
+
+
+
+
+

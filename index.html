@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login project</title> 
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="pass">
+<input type="radio" name="tab" id="tab-login" checked>
+<input type="radio" name="tab" id="tab-signup">
+
+    <div class="pass-head">
+    <div class="eyebrow">MEMBER.ACCESS.NO.0427</div>
+    <div class="title">Welcome back</div>
+    <div class="subtitle">present your credentials to continue,or register a new pass below</div>
+    </div>
+
+<div class="stamp"> <span>VALID<br>ENTRY</span></div>
+
+<div class="toggle">
+    <div class="toggle-glider"></div>
+    <label for="tab-login">SIGN IN</label>
+    <label for="tab-signup">REGISTER</label>
+</div>
+
+    <div class="perforation"></div>
+
+    <div class="forms">
+        <form class="panel" id="login-panel">
+            <div class="field">
+                <label for="login-email">Email</label>
+                <input type="Email" id="login-email" name="login-email" placeholder="you@example.com" required>
+</div>
+
+<div class="field">
+    <label for="login-password">password</label>
+    <input type="password" id="login-password" name="login-password" placeholder="********" required>
+</div>
+
+<div class="row-between">
+    <span class="remember">
+        <input type="checkbox" id="remember">
+       <label for="remember">keep me signed in</label>
+    </span>
+    <a href="#" class="link">forgot?</a>
+</div>
+
+<button type="submit" class="submit">Enter</button>
+<p class="fine-print">New here?<a href="#" class="link" onclick="document.getElementById('tab-signup').checked=true;return false">Register a pass →</a></p> 
+</form>
+
+<form class="panel" id="signup-panel">
+    <div class="field">
+        <label for="signup-name">Full name</label>
+        <input id="signup-name" type="text" placeholder="mike mikod" required>
+        </div>
+        <div class="field">
+            <label for="signup-email">Email</label>
+            <input id="signup-email" type="email" placeholder="you@example.com" required>
+           </div>
+           <div class="field">
+            <label for="signup-password">Password</label>
+            <input id="signup-password" type="password" placeholder="atleast 8 characters" required minlength="8">
+      </div>
+        
+      <button type="submit" class="submit">Issue My Pass</button>
+      <p class="fine-print">Already a member? <a href="#" class="link" onclick="document.getElementById('tab-login').checked=true;return false;">sign in →</a></p>
+    </form>
+
+</div>
+</div>
+
+</body>
+</html>
